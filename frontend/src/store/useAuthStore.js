@@ -80,6 +80,7 @@ export const useAuthStore = create((set, get) => ({
   },
   connectSocket: () => {
     const { authUser } = get();
+    //If user is not authenticated or socket is already connected, return
     if (!authUser || get().socket?.connected) return;
 
     const socket = io(BASE_URL, {
